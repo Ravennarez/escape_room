@@ -19,12 +19,26 @@
 
 .heading {
   grid-column: 1;
-  grid-row: 1 / span 2;
+  grid-row: 1;
   min-height: 40px;
   padding-right: 12px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border-right: 1px solid #405872;
+}
+
+.toggleButton {
+  display: none;
+}
+
+.inventoryContent {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  display: grid;
+  align-content: center;
+  gap: 6px;
 }
 
 .heading h2 {
@@ -42,8 +56,6 @@
 }
 
 .emptyInventory {
-  grid-column: 2;
-  grid-row: 1;
   min-width: 0;
   display: flex;
   align-items: center;
@@ -72,8 +84,6 @@
 }
 
 .itemList {
-  grid-column: 2;
-  grid-row: 1;
   margin: 0;
   padding: 0;
   display: grid;
@@ -162,8 +172,6 @@
 }
 
 .useNote {
-  grid-column: 2;
-  grid-row: 2;
   margin: 6px 0 0;
   color: #a7b6c3;
   font-size: 9px;
@@ -239,8 +247,7 @@
     border-bottom: 1px solid #405872;
   }
 
-  .emptyInventory,
-  .itemList {
+  .inventoryContent {
     grid-column: 1;
     grid-row: 2;
   }
@@ -289,8 +296,6 @@
   }
 
   .useNote {
-    grid-column: 1;
-    grid-row: 3;
     margin-top: 0;
     font-size: 8px;
   }
@@ -301,19 +306,51 @@
     bottom: max(6px, env(safe-area-inset-bottom));
     width: min(70vw, 600px);
     min-height: 56px;
+    max-height: 130px;
     padding: 6px 10px;
     grid-template-columns: minmax(105px, 125px) minmax(0, 1fr);
     column-gap: 10px;
     border-radius: 7px;
+    overflow: hidden;
+    transition: max-height 220ms ease, width 220ms ease, padding 220ms ease;
   }
 
   .heading {
-    min-height: 34px;
+    min-height: 44px;
     padding-right: 8px;
   }
 
   .heading h2 {
     font-size: 12px;
+  }
+
+  .toggleButton {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    border: 1px solid #536e8b;
+    border-radius: 6px;
+    background: #22384f;
+    color: #e6edf0;
+    cursor: pointer;
+  }
+
+  .toggleButton svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .toggleButton:hover {
+    border-color: #e2b580;
+    background: #314d6c;
+  }
+
+  .toggleButton:focus-visible {
+    outline: 2px solid #f0d7ab;
+    outline-offset: 2px;
   }
 
   .emptyInventory {
@@ -355,6 +392,38 @@
   .useNote {
     margin-top: 2px;
     font-size: 8px;
+  }
+
+  .collapsed {
+    width: 54px;
+    min-height: 54px;
+    max-height: 54px;
+    padding: 4px;
+    grid-template-columns: 1fr;
+  }
+
+  .collapsed .heading {
+    grid-column: 1;
+    grid-row: 1;
+    min-height: 44px;
+    padding: 0;
+    justify-content: center;
+    border: 0;
+  }
+
+  .collapsed .heading h2,
+  .collapsed .inventoryContent {
+    display: none;
+  }
+
+  .collapsed .toggleButton {
+    border-color: transparent;
+    background: transparent;
+  }
+
+  .collapsed .toggleButton:hover {
+    border-color: #e2b580;
+    background: #314d6c;
   }
 }
 
