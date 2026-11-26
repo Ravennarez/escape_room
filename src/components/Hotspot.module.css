@@ -1,0 +1,83 @@
+.hotspot {
+  position: absolute;
+  z-index: 3;
+  width: clamp(44px, 5vw, 62px);
+  height: clamp(44px, 5vw, 62px);
+  padding: 0;
+  display: grid;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #f7f1e7;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.marker {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgb(248 231 204 / 90%);
+  border-radius: 50%;
+  background: rgb(22 37 54 / 92%);
+  box-shadow: 0 0 0 5px rgb(245 201 143 / 18%), 0 3px 9px rgb(9 20 34 / 35%);
+  color: #fff0d5;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0;
+  transform: scale(.65);
+  transition: background-color 140ms ease, box-shadow 140ms ease, opacity 140ms ease, transform 140ms ease;
+}
+
+.label {
+  position: absolute;
+  top: 38px;
+  left: 50%;
+  width: max-content;
+  max-width: 150px;
+  padding: 5px 8px;
+  transform: translate(-50%, -3px);
+  border: 1px solid #71869b;
+  border-radius: 5px;
+  background: rgb(24 42 63 / 96%);
+  box-shadow: 0 4px 11px rgb(8 19 34 / 35%);
+  color: #f1eee5;
+  font-size: 9px;
+  letter-spacing: .03em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.hotspot:hover .marker,
+.hotspot:focus-visible .marker,
+.selected .marker {
+  transform: scale(1.13);
+  border-color: #fff0d5;
+  background: #8c5c58;
+  box-shadow: 0 0 0 6px rgb(245 201 143 / 28%), 0 0 22px rgb(247 197 131 / 72%);
+  opacity: 1;
+}
+
+.hotspot:hover .label,
+.hotspot:focus-visible .label,
+.selected .label {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+
+.hotspot:focus-visible {
+  outline: 2px solid #f3d9aa;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marker,
+  .label {
+    transition: none;
+  }
+}

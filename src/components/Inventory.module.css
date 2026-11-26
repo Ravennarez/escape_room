@@ -1,0 +1,303 @@
+.inventory {
+  position: absolute;
+  z-index: 9;
+  bottom: max(14px, env(safe-area-inset-bottom));
+  left: 50%;
+  width: min(62vw, 780px);
+  min-height: 92px;
+  margin: 0;
+  padding: 12px 15px;
+  display: grid;
+  grid-template-columns: minmax(145px, 190px) minmax(0, 1fr);
+  align-items: center;
+  column-gap: 16px;
+  transform: translateX(-50%);
+  border: 1px solid #536e8b;
+  border-radius: 8px;
+  background: #172a40;
+}
+
+.heading {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  min-height: 40px;
+  padding-right: 12px;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #405872;
+}
+
+.heading h2 {
+  margin: 0;
+  color: #eef2ed;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.heading h2 span {
+  margin-left: 4px;
+  color: #a4b5c5;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+}
+
+.emptyInventory {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 13px;
+}
+
+.empty {
+  margin: 0;
+  color: #aebdcb;
+  font-size: 10px;
+}
+
+.emptySlots {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(60px, 1fr));
+  gap: 9px;
+}
+
+.emptySlots span {
+  width: clamp(62px, 10vw, 112px);
+  height: 47px;
+  border: 1px dashed #506984;
+  border-radius: 6px;
+  background: rgb(11 25 43 / 26%);
+}
+
+.itemList {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  list-style: none;
+}
+
+.itemList li {
+  min-width: 0;
+}
+
+.emptyItemSlot {
+  width: 100%;
+  min-height: 49px;
+  display: block;
+  border: 1px dashed #506984;
+  border-radius: 6px;
+  background: rgb(11 25 43 / 26%);
+}
+
+.item {
+  width: 100%;
+  min-height: 49px;
+  padding: 6px 9px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #506780;
+  border-radius: 6px;
+  background: #1a2c43;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 140ms ease, border-color 140ms ease, transform 140ms ease;
+}
+
+.item:hover,
+.item.active {
+  transform: translateY(-1px);
+  border-color: #d0a275;
+  background: #2a4057;
+}
+
+.item:focus-visible {
+  outline: 2px solid #f0d7ab;
+  outline-offset: 2px;
+}
+
+.itemIcon {
+  width: 29px;
+  height: 29px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 1px solid #8398aa;
+  border-radius: 5px;
+  background: linear-gradient(145deg, #263d54, #1a2a3e);
+  color: #e8c08c;
+  box-shadow: inset 0 1px 3px rgb(255 255 255 / 8%), 0 2px 4px rgb(0 0 0 / 25%);
+}
+
+.itemIcon svg {
+  width: 24px;
+  height: 24px;
+  overflow: visible;
+  fill: #c99f5e;
+  stroke: #f0d7a4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.itemText {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.itemName {
+  overflow: hidden;
+  color: #e9eee9;
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.useNote {
+  grid-column: 2;
+  grid-row: 2;
+  margin: 6px 0 0;
+  color: #a7b6c3;
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+@media (max-width: 760px) {
+  .inventory {
+    width: min(calc(100% - 24px), 620px);
+    grid-template-columns: minmax(115px, 145px) minmax(0, 1fr);
+    gap: 10px;
+    padding: 9px;
+  }
+
+  .heading {
+    padding-right: 8px;
+  }
+
+  .heading h2 {
+    font-size: 12px;
+  }
+
+  .itemList {
+    gap: 5px;
+  }
+
+  .item {
+    min-height: 45px;
+    padding: 5px;
+    gap: 5px;
+  }
+
+  .emptyItemSlot {
+    min-height: 45px;
+  }
+
+  .itemIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .itemIcon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .emptySlots {
+    gap: 5px;
+  }
+
+  .emptySlots span {
+    width: 100%;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inventory {
+    width: calc(100% - 16px);
+    bottom: max(8px, env(safe-area-inset-bottom));
+    grid-template-columns: 1fr;
+    padding: 9px 10px;
+    row-gap: 7px;
+    border-radius: 9px;
+  }
+
+  .heading {
+    grid-column: 1;
+    grid-row: 1;
+    min-height: 24px;
+    padding: 0 0 6px;
+    border-right: 0;
+    border-bottom: 1px solid #405872;
+  }
+
+  .emptyInventory,
+  .itemList {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .empty {
+    max-width: 90px;
+    font-size: 8px;
+    line-height: 1.4;
+  }
+
+  .emptySlots {
+    flex: 1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .emptySlots span {
+    height: 36px;
+  }
+
+  .itemList {
+    gap: 5px;
+  }
+
+  .item {
+    min-height: 43px;
+    padding: 4px;
+    gap: 4px;
+  }
+
+  .emptyItemSlot {
+    min-height: 43px;
+  }
+
+  .itemIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .itemIcon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .itemName {
+    font-size: 8px;
+  }
+
+  .useNote {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 0;
+    font-size: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item {
+    transition: none;
+  }
+}

@@ -1,0 +1,104 @@
+.keypad {
+  width: min(100%, 215px);
+  margin-inline: auto;
+  display: grid;
+  justify-items: stretch;
+  gap: 10px;
+}
+
+.display {
+  min-height: 38px;
+  padding: 5px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  border: 1px solid #58718a;
+  border-radius: 5px;
+  background: #14263c;
+  color: #e8c694;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 17px;
+  letter-spacing: 0.12em;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.key,
+.utilityKey {
+  min-height: 35px;
+  border: 1px solid #4d6680;
+  border-radius: 5px;
+  background: #243a52;
+  color: #e4e9e9;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+}
+
+.key:hover,
+.utilityKey:hover {
+  border-color: #d4a779;
+  background: #304d68;
+}
+
+.utilityKey {
+  color: #afc0cd;
+  font-size: 9px;
+}
+
+.key:focus-visible,
+.utilityKey:focus-visible,
+.submitButton:focus-visible {
+  outline: 2px solid #f0d7ab;
+  outline-offset: 2px;
+}
+
+.submitButton {
+  min-height: 34px;
+  border: 1px solid #cc9e73;
+  border-radius: 5px;
+  background: #805952;
+  color: #fff0d6;
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+}
+
+.submitButton:hover:not(:disabled) {
+  border-color: #efd0a0;
+  background: #99695b;
+}
+
+.submitButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+@media (max-height: 600px) {
+  .keypad {
+    gap: 6px;
+  }
+
+  .display {
+    min-height: 32px;
+    padding: 2px 8px;
+  }
+
+  .buttons {
+    gap: 4px;
+  }
+
+  .key,
+  .utilityKey {
+    min-height: 29px;
+  }
+
+  .submitButton {
+    min-height: 28px;
+  }
+}

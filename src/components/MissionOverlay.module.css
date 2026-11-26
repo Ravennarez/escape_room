@@ -1,0 +1,401 @@
+.page {
+  min-height: 100vh;
+  padding: 34px clamp(20px, 6vw, 88px) 28px;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse at 50% 46%, rgb(95 135 170 / 18%), transparent 48%),
+    #172436;
+  color: #eef4f7;
+}
+
+.header,
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  margin: 0;
+  color: #f5f2e9;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.19em;
+}
+
+.brand span {
+  color: #d6a77f;
+}
+
+.eyebrow,
+.footer,
+.missionNumber,
+.metaLabel {
+  color: #a6b6c8;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  margin: 0;
+}
+
+.card {
+  width: min(100%, 780px);
+  margin: auto;
+  align-self: center;
+  overflow: hidden;
+  border: 1px solid #536e8b;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #253c58, #1b2c43 75%);
+  box-shadow: 0 30px 100px rgb(3 10 21 / 35%);
+}
+
+.won {
+  border-color: #587d6b;
+  background: linear-gradient(145deg, #253f4c, #1c3440 75%);
+}
+
+.lost {
+  border-color: #8d5d58;
+  background: linear-gradient(145deg, #453541, #292a3b 75%);
+}
+
+.cardTopline {
+  min-height: 49px;
+  padding: 0 27px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #435c77;
+  color: #c3ced8;
+  font-size: 11px;
+}
+
+.statusDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d99a72;
+  box-shadow: 0 0 12px rgb(217 154 114 / 55%);
+}
+
+.won .statusDot {
+  background: #95cfaa;
+  box-shadow: 0 0 12px rgb(149 207 170 / 50%);
+}
+
+.lost .statusDot {
+  background: #ef957d;
+  box-shadow: 0 0 12px rgb(239 149 125 / 45%);
+}
+
+.missionNumber {
+  margin-left: auto;
+}
+
+.content {
+  padding: clamp(32px, 7vw, 68px);
+}
+
+.kicker {
+  margin: 0 0 17px;
+  color: #e0b985;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.won .kicker {
+  color: #95cfaa;
+}
+
+.content h1 {
+  max-width: 610px;
+  margin: 0;
+  color: #f2f2eb;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 1.12;
+  white-space: pre-line;
+}
+
+.description {
+  max-width: 490px;
+  margin: 23px 0 0;
+  color: #c0cbd4;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.missionBar {
+  margin-top: 37px;
+  padding: 18px 0;
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  border-top: 1px solid #435c77;
+  border-bottom: 1px solid #435c77;
+}
+
+.missionBar > div {
+  display: grid;
+  gap: 8px;
+}
+
+.timer {
+  color: #f2d4a9;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 25px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.won .timer {
+  color: #b7e0c3;
+}
+
+.missionState strong {
+  color: #e2e8e7;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.muted {
+  color: #a6b6c8;
+}
+
+.actions {
+  margin-top: 27px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.primaryButton {
+  min-height: 46px;
+  padding: 0 19px;
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+  border: 1px solid #d9aa7d;
+  border-radius: 6px;
+  background: #8b5f56;
+  color: #fff3e7;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.won .primaryButton {
+  border-color: #95cfaa;
+  background: #487460;
+}
+
+.primaryButton:hover:not(:disabled) {
+  border-color: #f0d1a2;
+  background: #a47060;
+}
+
+.won .primaryButton:hover:not(:disabled) {
+  border-color: #b9e8c7;
+  background: #56876f;
+}
+
+.primaryButton:focus-visible {
+  outline: 2px solid #f0d7ab;
+  outline-offset: 3px;
+}
+
+.primaryButton:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.saveNote {
+  margin: 0;
+  color: #a6b6c8;
+  font-size: 11px;
+}
+
+.storageError {
+  width: min(100%, 780px);
+  margin: 16px auto 0;
+  color: #ffb6a4;
+  font-size: 12px;
+}
+
+.footer {
+  font-size: 9px;
+}
+
+.footerDivider {
+  padding: 0 7px;
+  color: #e0b985;
+}
+
+@media (max-width: 560px) {
+  .page {
+    padding: 23px 17px 20px;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cardTopline {
+    padding: 0 17px;
+  }
+
+  .content {
+    padding: 32px 22px;
+  }
+
+  .missionBar {
+    gap: 39px;
+  }
+
+  .actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-height: 800px) {
+  .page {
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding-top: 14px;
+    padding-bottom: 12px;
+  }
+
+  .cardTopline {
+    min-height: 42px;
+  }
+
+  .content {
+    padding: 22px clamp(20px, 5vw, 56px);
+  }
+
+  .kicker {
+    margin-bottom: 9px;
+  }
+
+  .content h1 {
+    font-size: clamp(30px, 5vw, 44px);
+    line-height: 1.05;
+  }
+
+  .description {
+    margin-top: 13px;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .missionBar {
+    margin-top: 19px;
+    padding: 12px 0;
+    gap: 48px;
+  }
+
+  .missionBar > div {
+    gap: 5px;
+  }
+
+  .timer {
+    font-size: 22px;
+  }
+
+  .actions {
+    margin-top: 17px;
+  }
+
+  .primaryButton {
+    min-height: 42px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .page {
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 8px max(16px, env(safe-area-inset-right)) 8px max(16px, env(safe-area-inset-left));
+  }
+
+  .header,
+  .footer {
+    display: none;
+  }
+
+  .cardTopline {
+    min-height: 36px;
+    padding: 0 20px;
+  }
+
+  .content {
+    padding: 16px clamp(24px, 4vw, 36px);
+  }
+
+  .kicker {
+    margin-bottom: 6px;
+    font-size: 9px;
+  }
+
+  .content h1 {
+    font-size: clamp(25px, 6vh, 34px);
+    line-height: 1.08;
+  }
+
+  .description {
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .missionBar {
+    margin-top: 12px;
+    padding: 9px 0;
+    gap: 40px;
+  }
+
+  .missionBar > div {
+    gap: 4px;
+  }
+
+  .timer {
+    font-size: 20px;
+  }
+
+  .actions {
+    margin-top: 12px;
+    gap: 14px;
+  }
+
+  .primaryButton {
+    min-height: 38px;
+    padding: 0 15px;
+  }
+
+  .saveNote {
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryButton {
+    transition: none;
+  }
+}
