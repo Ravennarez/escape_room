@@ -31,17 +31,17 @@ function startAmbient(context: AudioContext): void {
   const now = context.currentTime;
   const filter = context.createBiquadFilter();
   filter.type = "lowpass";
-  filter.frequency.setValueAtTime(150, now);
+  filter.frequency.setValueAtTime(220, now);
 
   const gain = context.createGain();
   gain.gain.setValueAtTime(0.0001, now);
-  gain.gain.exponentialRampToValueAtTime(0.012, now + 1.4);
+  gain.gain.exponentialRampToValueAtTime(0.025, now + 1.4);
   filter.connect(gain);
   gain.connect(context.destination);
 
-  ambientOscillators = [54, 57.2].map((frequency) => {
+  ambientOscillators = [82, 85.2].map((frequency) => {
     const oscillator = context.createOscillator();
-    oscillator.type = "sine";
+    oscillator.type = "triangle";
     oscillator.frequency.setValueAtTime(frequency, now);
     oscillator.connect(filter);
     oscillator.start(now);
