@@ -147,7 +147,6 @@ export function RoomScene() {
   }
 
   function handlePointerMove(event: PointerEvent<HTMLElement>) {
-    if (event.pointerType === "touch") return;
     setSpotlightActive(true);
     const bounds = event.currentTarget.getBoundingClientRect();
     setLightPosition({
@@ -156,8 +155,19 @@ export function RoomScene() {
     });
   }
 
+  function handlePointerLeave(event: PointerEvent<HTMLElement>) {
+    if (event.pointerType === "touch") return;
+    setSpotlightActive(false);
+    setLightPosition({ x: 50, y: 50 });
+  }
+
   function handleTargetSelect(target: TargetId) {
     playItemTapSound();
+    const roomTarget = roomTargets.find((candidate) => candidate.id === target);
+    if (roomTarget) {
+      setSpotlightActive(true);
+      setLightPosition({ x: roomTarget.x, y: roomTarget.y });
+    }
     setSelectedTarget(target);
     if (target === "light-switch") {
       setSelectedItem(null);
@@ -290,7 +300,7 @@ export function RoomScene() {
               <p className={styles.eyebrow}>ROOM 01 <span>/</span> SEALED DARKROOM</p>
               <h1 id="room-heading">Find a way out</h1>
             </div>
-            <p className={styles.sceneHelp}>Move the light. Examine what it finds.</p>
+            <p className={styles.sceneHelp}>Tap an object to reveal and inspect it.</p>
           </div>
 
           <section
@@ -303,10 +313,7 @@ export function RoomScene() {
             ref={roomRef}
             aria-label="Illustrated darkroom with selectable objects"
             onPointerMove={handlePointerMove}
-            onPointerLeave={() => {
-              setSpotlightActive(false);
-              setLightPosition({ x: 50, y: 50 });
-            }}
+            onPointerLeave={handlePointerLeave}
           >
             <div className={styles.roomTexture} aria-hidden="true" />
             <div className={styles.wallSeam} aria-hidden="true" />

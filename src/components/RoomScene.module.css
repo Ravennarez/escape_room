@@ -1508,6 +1508,72 @@
   }
 }
 
+@media (orientation: landscape) and (max-height: 500px) {
+  .topbar {
+    top: max(4px, env(safe-area-inset-top));
+    padding-right: max(8px, env(safe-area-inset-right));
+    padding-left: max(8px, env(safe-area-inset-left));
+    gap: 7px;
+  }
+
+  .missionStats {
+    padding: 5px 8px;
+    gap: 12px;
+    border-radius: 6px;
+  }
+
+  .timerBlock,
+  .hintBlock {
+    gap: 5px;
+  }
+
+  .statIcon,
+  .hintPip {
+    font-size: 13px;
+  }
+
+  .statLabel {
+    font-size: 7px;
+  }
+
+  .timerBlock strong {
+    font-size: 14px;
+  }
+
+  .hintBlock strong {
+    font-size: 11px;
+  }
+
+  .headerActions {
+    gap: 6px;
+  }
+
+  .restartButton {
+    min-height: 44px;
+    padding: 0 10px;
+    font-size: 10px;
+  }
+
+  .soundButton {
+    width: 44px;
+    min-height: 44px;
+  }
+
+  .inspection {
+    max-height: calc(100dvh - 88px);
+    padding: 10px 12px;
+  }
+
+  .inspectionPuzzle {
+    max-height: calc(100dvh - 88px);
+  }
+
+  .inspectionKeypad {
+    max-height: calc(100dvh - 80px);
+    overflow: auto;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .scene::before,
   .restartButton,

@@ -75,6 +75,20 @@
   outline-offset: 3px;
 }
 
+@media (hover: none) and (pointer: coarse) {
+  .marker {
+    transform: scale(.88);
+    opacity: .9;
+  }
+
+  .hotspot:active .marker {
+    transform: scale(1.08);
+    border-color: #fff0d5;
+    background: #8c5c58;
+    box-shadow: 0 0 0 6px rgb(245 201 143 / 28%), 0 0 22px rgb(247 197 131 / 72%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marker,
   .label {

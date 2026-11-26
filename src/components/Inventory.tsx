@@ -25,7 +25,7 @@ export function Inventory({
       {items.length === 0 ? (
         <div className={styles.emptyInventory}>
           <p className={styles.empty}>
-            Search the room to uncover objects.
+            Tap a room object to uncover items.
           </p>
           <div className={styles.emptySlots} aria-hidden="true">
             {Array.from({ length: 3 }, (_, index) => (

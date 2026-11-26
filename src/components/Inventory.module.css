@@ -296,6 +296,68 @@
   }
 }
 
+@media (orientation: landscape) and (max-height: 500px) {
+  .inventory {
+    bottom: max(6px, env(safe-area-inset-bottom));
+    width: min(70vw, 600px);
+    min-height: 56px;
+    padding: 6px 10px;
+    grid-template-columns: minmax(105px, 125px) minmax(0, 1fr);
+    column-gap: 10px;
+    border-radius: 7px;
+  }
+
+  .heading {
+    min-height: 34px;
+    padding-right: 8px;
+  }
+
+  .heading h2 {
+    font-size: 12px;
+  }
+
+  .emptyInventory {
+    justify-content: flex-start;
+  }
+
+  .empty {
+    font-size: 9px;
+  }
+
+  .emptySlots {
+    display: none;
+  }
+
+  .itemList {
+    gap: 6px;
+  }
+
+  .item {
+    min-height: 44px;
+    padding: 4px 6px;
+    gap: 6px;
+  }
+
+  .emptyItemSlot {
+    min-height: 44px;
+  }
+
+  .itemIcon {
+    width: 23px;
+    height: 23px;
+  }
+
+  .itemIcon svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .useNote {
+    margin-top: 2px;
+    font-size: 8px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .item {
     transition: none;
