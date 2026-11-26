@@ -324,35 +324,6 @@
     font-size: 12px;
   }
 
-  .toggleButton {
-    width: 44px;
-    height: 44px;
-    flex: 0 0 44px;
-    padding: 0;
-    display: grid;
-    place-items: center;
-    border: 1px solid #536e8b;
-    border-radius: 6px;
-    background: #22384f;
-    color: #e6edf0;
-    cursor: pointer;
-  }
-
-  .toggleButton svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .toggleButton:hover {
-    border-color: #e2b580;
-    background: #314d6c;
-  }
-
-  .toggleButton:focus-visible {
-    outline: 2px solid #f0d7ab;
-    outline-offset: 2px;
-  }
-
   .emptyInventory {
     justify-content: flex-start;
   }
@@ -392,6 +363,48 @@
   .useNote {
     margin-top: 2px;
     font-size: 8px;
+  }
+
+}
+
+@media (max-width: 900px), (pointer: coarse) {
+  .inventory {
+    overflow: visible;
+    transition: max-height 220ms ease, width 220ms ease, padding 220ms ease;
+  }
+
+  .toggleButton {
+    position: absolute;
+    z-index: 1;
+    top: -36px;
+    left: 50%;
+    width: 48px;
+    height: 44px;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    transform: translateX(-50%);
+    border: 1px solid #536e8b;
+    border-bottom: 0;
+    border-radius: 8px 8px 0 0;
+    background: #22384f;
+    color: #e6edf0;
+    cursor: pointer;
+  }
+
+  .toggleButton svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .toggleButton:hover {
+    border-color: #e2b580;
+    background: #314d6c;
+  }
+
+  .toggleButton:focus-visible {
+    outline: 2px solid #f0d7ab;
+    outline-offset: 2px;
   }
 
   .collapsed {

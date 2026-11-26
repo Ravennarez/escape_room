@@ -35,7 +35,7 @@ function startAmbient(context: AudioContext): void {
 
   const gain = context.createGain();
   gain.gain.setValueAtTime(0.0001, now);
-  gain.gain.exponentialRampToValueAtTime(0.009, now + 1.4);
+  gain.gain.exponentialRampToValueAtTime(0.012, now + 1.4);
   filter.connect(gain);
   gain.connect(context.destination);
 
@@ -123,7 +123,7 @@ export function playItemTapSound(): void {
 
   ambientRequested = true;
   startAmbient(context);
-  playTone(context, 720, 430, context.currentTime, 0.055, 0.016, "triangle");
+  playTone(context, 720, 430, context.currentTime, 0.055, 0.022, "triangle");
 }
 
 export function playTaskSuccessSound(): void {
@@ -137,6 +137,6 @@ export function playTaskSuccessSound(): void {
   const now = context.currentTime + 0.08;
   [587.33, 739.99, 880].forEach((frequency, index) => {
     const startAt = now + index * 0.12;
-    playTone(context, frequency, frequency, startAt, 0.22, 0.022, "sine");
+    playTone(context, frequency, frequency, startAt, 0.22, 0.03, "sine");
   });
 }
